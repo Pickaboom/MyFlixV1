@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MyFlix V1 - A modern private streaming platform.">
+  <title>MyFlix V1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background" aria-hidden="true">
+    <div class="background__overlay"></div>
+    <div class="background__glow background__glow--one"></div>
+    <div class="background__glow background__glow--two"></div>
+
+    <div class="poster-grid">
+      <div class="poster poster--1"><span>Night Signal</span></div>
+      <div class="poster poster--2"><span>Red Horizon</span></div>
+      <div class="poster poster--3"><span>Afterlight</span></div>
+      <div class="poster poster--4"><span>Deep Orbit</span></div>
+      <div class="poster poster--5"><span>Last City</span></div>
+      <div class="poster poster--6"><span>Echo Point</span></div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <a class="logo" href="#" aria-label="MyFlix home">MYFLIX</a>
+  </header>
+
+  <main class="auth-shell">
+    <section class="auth-card" aria-labelledby="auth-title">
+      <div class="auth-card__heading">
+        <p class="eyebrow">Welcome back</p>
+        <h1 id="auth-title">Sign in to MyFlix</h1>
+        <p>Continue watching your favourite movies and shows.</p>
+      </div>
+
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+
+      <form id="login-form" class="auth-form" novalidate>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            required
+          >
+          <small class="field-error" id="email-error"></small>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Enter your password"
+              minlength="6"
+              required
+            >
+            <button
+              class="show-password"
+              id="show-password"
+              type="button"
+              aria-label="Show password"
+              aria-pressed="false"
+            >
+              Show
+            </button>
+          </div>
+          <small class="field-error" id="password-error"></small>
+        </div>
+
+        <div class="form-row">
+          <label class="checkbox">
+            <input id="remember" type="checkbox">
+            <span>Remember me</span>
+          </label>
+
+          <button class="text-button" type="button" id="forgot-password">
+            Forgot password?
+          </button>
+        </div>
+
+        <button class="primary-button" type="submit">
+          <span>Sign in</span>
+        </button>
+      </form>
+
+      <div class="divider"><span>or</span></div>
+
+      <button class="secondary-button" type="button" id="create-account">
+        Create an account
+      </button>
+
+      <p class="registration-note">
+        Registration status:
+        <strong id="registration-status">Open</strong>
+      </p>
+
+      <p class="demo-note">
+        This first version uses a demo sign-in screen. Firebase will be connected next.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>MyFlix V1</span>
+    <span>Private streaming platform</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
