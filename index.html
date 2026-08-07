@@ -11,6 +11,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <section id="accessGate" class="access-gate" aria-labelledby="accessTitle">
+    <div class="gate-glow"></div>
+    <div class="gate-card">
+      <div class="gate-logo">MYFLIX</div>
+      <p class="gate-kicker">PRIVATE CINEMA</p>
+      <h1 id="accessTitle">Enter your access code</h1>
+      <p class="gate-copy">Enter the four-digit code to open MyFlix.</p>
+      <form id="accessForm" autocomplete="off">
+        <input id="accessCode" class="code-input" type="password" inputmode="numeric" pattern="[0-9]{4}" minlength="4" maxlength="4" placeholder="••••" aria-label="Four-digit access code" required>
+        <p id="accessError" class="gate-error hidden" role="alert">That code is incorrect. Try again.</p>
+        <button class="gate-button" type="submit">Enter MyFlix</button>
+      </form>
+      <span class="gate-note">For Levi and friends</span>
+    </div>
+  </section>
   <header class="topbar">
     <button class="brand" data-view="home" aria-label="MyFlix home">MYFLIX</button>
     <nav aria-label="Main navigation">
@@ -21,7 +36,7 @@
     </nav>
     <div class="top-actions">
       <button id="searchButton" class="icon-button" aria-label="Search">⌕</button>
-      <div class="avatar" title="Your profile">L</div>
+      <button id="lockButton" class="logout-button" type="button">Lock</button>
     </div>
   </header>
 
@@ -80,6 +95,7 @@
     </article>
   </template>
 
+  <script src="js/access.js"></script>
   <script src="app.js" defer></script>
 </body>
 </html>

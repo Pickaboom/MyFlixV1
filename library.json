@@ -10,8 +10,8 @@
       "genre": "Test Video",
       "rating": "TEST",
       "description": "Our first working MyFlix playback test, using your uploaded screen recording.",
-      "poster": "",
-      "backdrop": "",
+      "poster": "images/test-poster.jpg",
+      "backdrop": "images/test-backdrop.jpg",
       "video": "media/myflix-test-recording.mp4",
       "category": "Recently Added"
     },
