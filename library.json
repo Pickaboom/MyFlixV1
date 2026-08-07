@@ -1,0 +1,33 @@
+{
+  "featuredId": "myflix-test-recording",
+  "movies": [
+    {
+      "id": "myflix-test-recording",
+      "title": "MyFlix Test Recording",
+      "type": "Movie",
+      "year": 2026,
+      "runtime": "10 sec",
+      "genre": "Test Video",
+      "rating": "TEST",
+      "description": "Our first working MyFlix playback test, using your uploaded screen recording.",
+      "poster": "images/test-poster.jpg",
+      "backdrop": "images/test-backdrop.jpg",
+      "video": "media/myflix-test-recording.mp4",
+      "category": "Recently Added"
+    },
+    {
+      "id": "example-series",
+      "title": "Example Series",
+      "type": "Series",
+      "year": 2026,
+      "runtime": "Episode 1",
+      "genre": "Drama",
+      "rating": "M",
+      "description": "Series can live beside movies. Add each episode as another entry for the first version.",
+      "poster": "",
+      "backdrop": "",
+      "video": "media/example-episode-1.mp4",
+      "category": "Series"
+    }
+  ]
+}

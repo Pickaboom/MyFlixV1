@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08080a">
+  <title>MyFlix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="accessGate" class="access-gate" aria-labelledby="accessTitle">
+    <div class="gate-glow"></div>
+    <div class="gate-card">
+      <div class="gate-logo">MYFLIX</div>
+      <p class="gate-kicker">PRIVATE CINEMA</p>
+      <h1 id="accessTitle">Enter your access code</h1>
+      <p class="gate-copy">Enter the four-digit code to open MyFlix.</p>
+      <form id="accessForm" autocomplete="off">
+        <input id="accessCode" class="code-input" type="password" inputmode="numeric" pattern="[0-9]{4}" minlength="4" maxlength="4" placeholder="••••" aria-label="Four-digit access code" required>
+        <p id="accessError" class="gate-error hidden" role="alert">That code is incorrect. Try again.</p>
+        <button class="gate-button" type="submit">Enter MyFlix</button>
+      </form>
+      <span class="gate-note">For Levi and friends</span>
+    </div>
+  </section>
+  <header class="topbar">
+    <button class="brand" data-view="home" aria-label="MyFlix home">MYFLIX</button>
+    <nav aria-label="Main navigation">
+      <button class="nav-link active" data-view="home">Home</button>
+      <button class="nav-link" data-filter="Movie">Movies</button>
+      <button class="nav-link" data-filter="Series">Series</button>
+      <button class="nav-link" data-view="library">My List</button>
+    </nav>
+    <div class="top-actions">
+      <button id="searchButton" class="icon-button" aria-label="Search">⌕</button>
+      <button id="lockButton" class="logout-button" type="button">Lock</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-backdrop"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <span class="eyebrow">MYFLIX FEATURED</span>
+        <h1 id="heroTitle">Your movies.<br>Your cinema.</h1>
+        <div id="heroMeta" class="hero-meta"><span>Private library</span><span>Any device</span><span>Simple setup</span></div>
+        <p id="heroDescription">A clean home for the movies and videos you own. Add a file, update one easy list, and it appears here.</p>
+        <div class="hero-buttons">
+          <button id="heroPlay" class="button primary">▶ <span>Play</span></button>
+          <button id="heroInfo" class="button secondary">ⓘ <span>More info</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="searchPanel" class="search-panel hidden" aria-label="Search movies">
+      <label for="searchInput">Search MyFlix</label>
+      <div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Movie, series or genre…" autocomplete="off"></div>
+    </section>
+
+    <section id="content" class="content" aria-live="polite"></section>
+  </main>
+
+  <div id="detailsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="modal-card">
+      <button class="close-button" data-close="detailsModal" aria-label="Close">×</button>
+      <div id="detailBackdrop" class="modal-backdrop"></div>
+      <div class="modal-body">
+        <h2 id="detailTitle"></h2>
+        <div id="detailMeta" class="hero-meta"></div>
+        <p id="detailDescription"></p>
+        <div class="modal-actions">
+          <button id="detailPlay" class="button primary">▶ Play</button>
+          <button id="listButton" class="round-button" aria-label="Add to My List">＋</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="playerModal" class="player-modal hidden" role="dialog" aria-modal="true" aria-label="Video player">
+    <button class="player-close" data-close="playerModal" aria-label="Close player">×</button>
+    <video id="videoPlayer" controls playsinline preload="metadata"></video>
+    <p id="playerError" class="player-error hidden"></p>
+  </div>
+
+  <template id="cardTemplate">
+    <article class="movie-card" tabindex="0">
+      <div class="poster"><img alt="" loading="lazy"><div class="poster-fallback"></div><span class="card-badge"></span></div>
+      <h3></h3>
+      <div class="card-meta"></div>
+      <div class="progress-track hidden"><span></span></div>
+    </article>
+  </template>
+
+  <script src="js/access.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
