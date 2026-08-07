@@ -1,11 +1,85 @@
-<!doctype html><html lang="en-AU"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="styles.css"><title>Sign in | MyFlix</title></head>
-<body data-page="login"><div class="backdrop"></div><header><a class="logo" href="index.html">MYFLIX</a></header>
-<main class="auth-shell"><section class="card"><p class="eyebrow">Welcome back</p><h1>Sign in</h1><p class="muted">Continue watching on your private streaming platform.</p>
-<div id="message" class="message" role="status"></div>
-<form id="login-form">
-<label>Email address<input id="email" type="email" autocomplete="email" required></label>
-<label>Password<div class="password"><input id="password" type="password" autocomplete="current-password" minlength="6" required><button id="show-password" type="button">Show</button></div></label>
-<div class="row"><label class="check"><input id="remember" type="checkbox">Remember me</label><button id="forgot-password" class="link-button" type="button">Forgot password?</button></div>
-<button class="primary" type="submit">Sign in</button></form>
-<div class="divider"><span>or</span></div><a class="secondary" href="register.html">Create account</a>
-</section></main><script type="module" src="auth.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08080a">
+  <title>MyFlix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="brand" data-view="home" aria-label="MyFlix home">MYFLIX</button>
+    <nav aria-label="Main navigation">
+      <button class="nav-link active" data-view="home">Home</button>
+      <button class="nav-link" data-filter="Movie">Movies</button>
+      <button class="nav-link" data-filter="Series">Series</button>
+      <button class="nav-link" data-view="library">My List</button>
+    </nav>
+    <div class="top-actions">
+      <button id="searchButton" class="icon-button" aria-label="Search">⌕</button>
+      <div class="avatar" title="Your profile">L</div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-backdrop"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <span class="eyebrow">MYFLIX FEATURED</span>
+        <h1 id="heroTitle">Your movies.<br>Your cinema.</h1>
+        <div id="heroMeta" class="hero-meta"><span>Private library</span><span>Any device</span><span>Simple setup</span></div>
+        <p id="heroDescription">A clean home for the movies and videos you own. Add a file, update one easy list, and it appears here.</p>
+        <div class="hero-buttons">
+          <button id="heroPlay" class="button primary">▶ <span>Play</span></button>
+          <button id="heroInfo" class="button secondary">ⓘ <span>More info</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="searchPanel" class="search-panel hidden" aria-label="Search movies">
+      <label for="searchInput">Search MyFlix</label>
+      <div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Movie, series or genre…" autocomplete="off"></div>
+    </section>
+
+    <section id="content" class="content" aria-live="polite"></section>
+  </main>
+
+  <div id="detailsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="modal-card">
+      <button class="close-button" data-close="detailsModal" aria-label="Close">×</button>
+      <div id="detailBackdrop" class="modal-backdrop"></div>
+      <div class="modal-body">
+        <h2 id="detailTitle"></h2>
+        <div id="detailMeta" class="hero-meta"></div>
+        <p id="detailDescription"></p>
+        <div class="modal-actions">
+          <button id="detailPlay" class="button primary">▶ Play</button>
+          <button id="listButton" class="round-button" aria-label="Add to My List">＋</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="playerModal" class="player-modal hidden" role="dialog" aria-modal="true" aria-label="Video player">
+    <button class="player-close" data-close="playerModal" aria-label="Close player">×</button>
+    <video id="videoPlayer" controls playsinline preload="metadata"></video>
+    <p id="playerError" class="player-error hidden"></p>
+  </div>
+
+  <template id="cardTemplate">
+    <article class="movie-card" tabindex="0">
+      <div class="poster"><img alt="" loading="lazy"><div class="poster-fallback"></div><span class="card-badge"></span></div>
+      <h3></h3>
+      <div class="card-meta"></div>
+      <div class="progress-track hidden"><span></span></div>
+    </article>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Put your video files in this folder, then match each filename in library.json.
